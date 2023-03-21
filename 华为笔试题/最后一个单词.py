@@ -1,0 +1,6 @@
+res = list(input().split())
+print(res)
+all_len = len(res)
+print(all_len)
+fin_len = int(len(str(res[all_len-1])))
+print(fin_len)
