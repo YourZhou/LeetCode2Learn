@@ -45,6 +45,59 @@ class Solution:
         return dic[head]
 
 
+def test_password(inputs):
+    if len(inputs) < 8:
+        return "NG"
+    kinds = set()
+    subStrings = []
+    for i in range(len(inputs)):
+        for j in range(i + 1, len(inputs) + 1):
+            subString = inputs[i:j]
+            if len(subString) == 1:
+                if subString.isdigit():
+                    kinds.add("digit")
+                elif subString.isupper():
+                    kinds.add("upper")
+                elif subString.islower():
+                    kinds.add("lower")
+                else:
+                    kinds.add("punt")
+            elif len(subString) > 2:
+                if subString not in subStrings:
+                    subStrings.append(subString)
+                else:
+                    return "NG"
+    if len(kinds) < 3:
+        return "NG"
+    return "OK"
+
+
 if __name__ == '__main__':
     solution = Solution()
     print(solution.reverseLeftWords(s, 2))
+
+    kinds = set()
+    inputs = input()
+    if len(inputs) < 8:
+        print("NG")
+    subStrings = []
+    for i in range(len(inputs)):
+        for j in range(i + 1, len(inputs) + 1):
+            subString = inputs[i:j]
+            if len(subString) == 1:
+                if subString.isdigit():
+                    kinds.add("digit")
+                elif subString.isupper():
+                    kinds.add("upper")
+                elif subString.islower():
+                    kinds.add("lower")
+                else:
+                    kinds.add("punt")
+            elif len(subString) > 2:
+                if subString not in subStrings:
+                    subStrings.append(subString)
+                else:
+                    print("NG")
+    if len(kinds) < 3:
+        print("NG")
+    print("OK")
