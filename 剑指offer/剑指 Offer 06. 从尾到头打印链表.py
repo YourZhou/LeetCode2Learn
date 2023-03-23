@@ -15,4 +15,5 @@ class Solution:
                 break
             reverseList.append(head.val)
             head = head.next
+        reverseList.append(head.val)
         return reverseList[::-1]
